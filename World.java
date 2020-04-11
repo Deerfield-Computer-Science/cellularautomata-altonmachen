@@ -16,9 +16,9 @@ public class World {
 	public void letTimePass(){
 		
 		makeNewCreatures();
-		eatThings();
-		creaturesGetOlder();
-		purgeTheDead();		
+		//eatThings();
+		//creaturesGetOlder();
+		//purgeTheDead();		
 	}
 	
 	public void makeNewCreatures() {
@@ -28,10 +28,6 @@ public class World {
 		for(int i=0; i< currentSizeOfCreatureList; i++) {
 			creatureList.get(i).reproduce();
 		}
-	}
-	
-	public void eatThings() {
-//			need to do this
 	}
 	
 	public void purgeTheDead(){
@@ -49,8 +45,6 @@ public class World {
 			l.age(1);
 		}
 	}
-	
-	
 	
 	public int getWidth() {
 		return width;
