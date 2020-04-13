@@ -11,12 +11,10 @@ public class Grass extends Plant {
 		RandomGenerator rgen = RandomGenerator.getInstance();
 		myLifeSpan = rgen.nextInt(4,5);
 		myColor=Color.GREEN;
+		species = "Grass";
 	}
 	
 	public void reproduce() {
-		int newX = (int)(Math.random()*20);
-		int newY = (int)(Math.random()*20); 	
-		myWorld.getCreatureList().add(new Grass(new Location(newX,newY), myWorld));
 	}
 	
 }

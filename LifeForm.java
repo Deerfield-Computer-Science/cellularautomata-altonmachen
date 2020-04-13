@@ -1,6 +1,8 @@
 import java.awt.Color;
 import java.util.ArrayList;
 
+import acm.util.RandomGenerator;
+
 public abstract class LifeForm {
 	
 	protected World myWorld;
@@ -8,15 +10,20 @@ public abstract class LifeForm {
 	protected Location myLocation;
 	protected Color myColor;
 	protected int myAge;
+	protected int mySex;
+	protected String species;
 	protected boolean alive;
+	RandomGenerator rgen = RandomGenerator.getInstance();
 	
 	// lifeform constructors
-	public LifeForm(int myLifeSpan, Location myLocation, Color myColor, World myWorld) {
+	public LifeForm(String species,int myLifeSpan, Location myLocation, Color myColor, World myWorld) {
 		super();
 		this.myLifeSpan = myLifeSpan;
 		this.myLocation = myLocation;
 		this.myColor = myColor;
-		this.myWorld = myWorld;
+		this.species= species;
+		this.myWorld = myWorld; 
+		this.mySex = rgen.nextInt(0,1);
 		alive = true;
 	}
 	
@@ -24,6 +31,7 @@ public abstract class LifeForm {
 		super();
 		this.myWorld = myWorld;
 		this.myLocation = myLocation;
+		this.mySex = rgen.nextInt(0,1);
 		alive = true;
 	}
 	
@@ -79,9 +87,27 @@ public abstract class LifeForm {
 		this.myAge = age;
 	}
 	
+	public int getSex() {
+		return mySex;
+	}
+
+	public void setSex(int sex) {
+		this.mySex = sex;
+	}
+	
+	public String getSpecies() {
+		return species;
+	}
+
+	public void setSpecies(String species) {
+		this.species = species;
+	}
+	
 	@Override
 	public String toString() {
-		return "LifeForm [myLifeSpan=" + myLifeSpan + ", myLocation="
-				+ myLocation + ", myColor=" + myColor + "]";
+		return "LifeForm [species=" + species + "myLifeSpan=" + myLifeSpan + ", myLocation="
+				+ myLocation + ", myColor=" + myColor + ", mySex= " + mySex + "]";
 	}
+
+	
 }

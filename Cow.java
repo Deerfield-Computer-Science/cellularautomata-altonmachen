@@ -4,8 +4,8 @@ import acm.util.RandomGenerator;
 
 public class Cow extends LifeForm {
 
-	public Cow(int myLifeSpan, Location myLocation, Color myColor, World myWorld) {
-		super(myLifeSpan, myLocation, myColor, myWorld);
+	public Cow(String species, int myLifeSpan, Location myLocation, Color myColor, World myWorld) {
+		super(species,myLifeSpan, myLocation, myColor, myWorld);
 	}
 	
 	public Cow(Location myLocation, World myWorld) {
@@ -13,14 +13,15 @@ public class Cow extends LifeForm {
 		myColor = Color.BLACK;
 		RandomGenerator rgen = RandomGenerator.getInstance();
 		myLifeSpan = rgen.nextInt(7,10);
+		species="Cow";
 
 	}
-	@Override
+	
 	public void reproduce() {
-		int newX = (int)(Math.random()*20);
-		int newY = (int)(Math.random()*20); 
-		myWorld.getCreatureList().add(new Cow(new Location(newX,newY), myWorld));
+		
 	}
+	
+	
 	
 	public void move(int i) {
 		int myX = myWorld.getCreatureList().get(i).getMyLocation().getX();
@@ -40,5 +41,5 @@ public class Cow extends LifeForm {
 			myWorld.getCreatureList().remove(i);
 //			not sure how to make it so it only eats grass
 		}
-}
+	}
 }
