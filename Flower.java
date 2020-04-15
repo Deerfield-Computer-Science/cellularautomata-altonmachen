@@ -10,8 +10,16 @@ public class Flower extends Plant {
 		species= "Flower";
 	}
 	
-	public void reproduce() {
-
+	public void reproduce(int index) {
+		int chance = rgen.nextInt(1, 10);
+		int x= myWorld.getCreatureList().get(index).getMyLocation().getX();
+		x += rgen.nextInt(-1, 1);
+		int y= myWorld.getCreatureList().get(index).getMyLocation().getY();
+		y += rgen.nextInt(-1, 1);
+		Location updated = new Location (x,y);
+		if (chance>5) {
+				myWorld.getCreatureList().add(new Flower(updated, myWorld));
+		}
 	}
 
 }

@@ -46,9 +46,7 @@ public abstract class LifeForm {
 		if (myAge>myLifeSpan)
 			alive=false;
 	}
-	
-	// to be alive you have to be able to reproduce....
-	public abstract void reproduce();
+	public abstract void reproduce(int index);
 	
 	public boolean isDead(){
 		return !alive;

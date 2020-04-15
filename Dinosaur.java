@@ -12,9 +12,21 @@ public class Dinosaur extends Animal {
 
 	}
 	@Override
-	public void reproduce() {
-
-	}
+	public void reproduce(int index) {
+			int x= myWorld.getCreatureList().get(index).getMyLocation().getX();
+			x += rgen.nextInt(-1, 1);
+			int y= myWorld.getCreatureList().get(index).getMyLocation().getY();
+			y += rgen.nextInt(-1, 1);
+			Location updated = new Location (x,y);
+			for (int i=0; i<myWorld.getCreatureList().size(); i++) {
+				if ((myWorld.getCreatureList().get(i).getMyLocation()==updated)&&(myWorld.getCreatureList().get(i).getSpecies()==myWorld.getCreatureList().get(index).getSpecies())&&(myWorld.getCreatureList().get(i).getSex()!=myWorld.getCreatureList().get(index).getSex())) {
+					Location offspring = new Location(updated.getX()+rgen.nextInt(-1, 1), updated.getY()+rgen.nextInt(-1, 1));
+						myWorld.getCreatureList().add(new Dinosaur(offspring, myWorld));
+					}
+				}
+			}
+		
+	
 	
 	public void move(int i) {
 		int myX = myWorld.getCreatureList().get(i).getMyLocation().getX();
@@ -23,14 +35,6 @@ public class Dinosaur extends Animal {
 		myWorld.getCreatureList().get(i).setMyLocation(loc);
 	}
 	
-	public void eatCow() {
-		for (int i=0; i<myWorld.getCreatureList().size(); i++) {
-			if (myLocation == myWorld.getCreatureList().get(i).getMyLocation()) {
-				
-			}
-			
-		}
-	}
 	
 	public void eat() {
 		for (int i=0; i<myWorld.getCreatureList().size(); i++) {
