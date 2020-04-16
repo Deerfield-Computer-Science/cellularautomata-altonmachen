@@ -47,6 +47,8 @@ public abstract class LifeForm {
 			alive=false;
 	}
 	public abstract void reproduce(int index);
+	public abstract void eat();
+	public abstract void move();
 	
 	public boolean isDead(){
 		return !alive;

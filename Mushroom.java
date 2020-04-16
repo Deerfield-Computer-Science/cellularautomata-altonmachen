@@ -24,5 +24,11 @@ public class Mushroom extends Plant {
 				myWorld.getCreatureList().add(new Mushroom(updated, myWorld));
 		}
 	}
+		public void eat() {
+	
+			}
+		public void move() {
+			
+		}
 
 }

@@ -16,17 +16,37 @@ public class World {
 	public void letTimePass(){
 		
 		makeNewCreatures();
-		//eatThings();
-		//creaturesGetOlder();
-		//purgeTheDead();		
+		eatThings();
+		moveThings();
+		creaturesGetOlder();
+		purgeTheDead();		
 	}
 	
 	public void makeNewCreatures() {
 		
 		int currentSizeOfCreatureList = creatureList.size();
 		System.out.println("size of list is "+currentSizeOfCreatureList);
-		for(int i=0; i< currentSizeOfCreatureList; i++) {
-			creatureList.get(i).reproduce(i);
+		for(int j=0; j< currentSizeOfCreatureList; j++) {
+			if (creatureList.get(j).getSex()==1) {
+				creatureList.get(j).reproduce(j);
+			}
+			
+		}
+	}
+	
+	public void eatThings() {
+		int currentSizeOfCreatureList = creatureList.size();
+		System.out.println("size of the list is " +currentSizeOfCreatureList);
+		for (int i=0; i<currentSizeOfCreatureList; i++) {
+			creatureList.get(i).eat();
+		}
+	}
+	
+	public void moveThings() {
+		int currentSizeOfCreatureList = creatureList.size();
+		System.out.println("size of the list is " +currentSizeOfCreatureList);
+		for (int i=0; i<currentSizeOfCreatureList; i++) {
+			creatureList.get(i).move();
 		}
 	}
 	
@@ -38,6 +58,8 @@ public class World {
 			else
 				i++;
 		}	
+	
+	
 	}
 	
 	public void creaturesGetOlder(){

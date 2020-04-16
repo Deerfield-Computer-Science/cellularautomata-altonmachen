@@ -21,6 +21,14 @@ public class PoisonBerries extends Plant {
 				myWorld.getCreatureList().add(new PoisonBerries(updated, myWorld));
 		}
 	}
-	}
+	
+		public void eat() {
+			
+		}
+
+		public void move() {
+			
+		}
+}
 
 

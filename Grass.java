@@ -26,5 +26,11 @@ public class Grass extends Plant {
 		}
 	}
 	
+	public void eat() {
+		
+	}
 	
+	public void move() {
+		
+	}
 }

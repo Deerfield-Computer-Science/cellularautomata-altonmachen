@@ -17,27 +17,29 @@ public class Cow extends Animal {
 
 	}
 	
-		public void reproduce(int index) {
-			int x= myWorld.getCreatureList().get(index).getMyLocation().getX();
-			x += rgen.nextInt(-1, 1);
-			int y= myWorld.getCreatureList().get(index).getMyLocation().getY();
-			y += rgen.nextInt(-1, 1);
-			Location updated = new Location (x,y);
-			for (int i=0; i<myWorld.getCreatureList().size(); i++) {
-				if ((myWorld.getCreatureList().get(i).getMyLocation()==updated)&&(myWorld.getCreatureList().get(i).getSpecies()==myWorld.getCreatureList().get(index).getSpecies())&&(myWorld.getCreatureList().get(i).getSex()!=myWorld.getCreatureList().get(index).getSex())) {
-					Location offspring = new Location(updated.getX()+rgen.nextInt(-1, 1), updated.getY()+rgen.nextInt(-1, 1));
-						myWorld.getCreatureList().add(new Cow(offspring, myWorld));
-					}
-					
+	public void reproduce(int index) {
+		System.out.print("Reproduce");
+		int x= myWorld.getCreatureList().get(index).getMyLocation().getX();
+		int y= myWorld.getCreatureList().get(index).getMyLocation().getY();
+		Location updated = new Location (x,y);
+		Location updated2 = new Location(x+1,y);
+		Location updated3 = new Location (x-1,y);
+		Location updated4= new Location (x, y+1);
+		Location updated5 = new Location (x, y-1);
+		Location updated6 = new Location (x+1, y+1);
+		Location updated7 = new Location (x-1, y-1);
+		for (int i=0; i<myWorld.getCreatureList().size(); i++) {
+			if ((myWorld.getCreatureList().get(i).getMyLocation().getX()==updated.getX()) && (myWorld.getCreatureList().get(i).getMyLocation().getY())==updated.getY() || (myWorld.getCreatureList().get(i).getMyLocation().getX()==updated2.getX()) && (myWorld.getCreatureList().get(i).getMyLocation().getY())==updated2.getY() || (myWorld.getCreatureList().get(i).getMyLocation().getX()==updated3.getX()) && (myWorld.getCreatureList().get(i).getMyLocation().getY())==updated3.getY() || (myWorld.getCreatureList().get(i).getMyLocation().getX()==updated4.getX()) && (myWorld.getCreatureList().get(i).getMyLocation().getY())==updated4.getY() || (myWorld.getCreatureList().get(i).getMyLocation().getX()==updated5.getX()) && (myWorld.getCreatureList().get(i).getMyLocation().getY())==updated5.getY() || (myWorld.getCreatureList().get(i).getMyLocation().getX()==updated6.getX()) && (myWorld.getCreatureList().get(i).getMyLocation().getY())==updated6.getY() || (myWorld.getCreatureList().get(i).getMyLocation().getX()==updated7.getX()) && (myWorld.getCreatureList().get(i).getMyLocation().getY())==updated7.getY()) {
+				if (myWorld.getCreatureList().get(i).getSpecies().compareTo(myWorld.getCreatureList().get(index).getSpecies())==0) {
+							if(myWorld.getCreatureList().get(i).getSex()!=myWorld.getCreatureList().get(index).getSex()) {
+								Location offspring = new Location(updated.getX()+rgen.nextInt(-1, 1), updated.getY()+rgen.nextInt(-1, 1));
+									myWorld.getCreatureList().add(new Cow(offspring, myWorld));
 				}
+					}
 			}
+			}
+		}
 	
-	public void move(int i) {
-		int myX = myWorld.getCreatureList().get(i).getMyLocation().getX();
-		int myY = myWorld.getCreatureList().get(i).getMyLocation().getY();
-		Location loc = new Location(myX+1, myY+1);
-		myWorld.getCreatureList().get(i).setMyLocation(loc);
-	}
 	
 	public void eat() {
 		for (int i=0; i<myWorld.getCreatureList().size(); i++) {

@@ -22,4 +22,12 @@ public class Flower extends Plant {
 		}
 	}
 
+		public void eat() {
+	
+			}
+		
+		public void move() {
+			
+		}
+
 }
